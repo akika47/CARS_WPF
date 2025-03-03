@@ -50,7 +50,7 @@ public partial class MainWindow : Window
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT COUNT(*) FROM orderdetails WHERE productCode = @productCode";
+                string query = "SELECT quantityOrdered FROM orderdetails WHERE productCode = @productCode";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@productCode", productCode);
                 int orderCount = Convert.ToInt32(cmd.ExecuteScalar());
